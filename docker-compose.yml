@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  app:
+    build:
+      context: .
+    image: recipe-app:latest
+    container_name: web
+    ports:
+    - "8000:8000"
+    volumes:
+    - ./app:/app
+    command: >
+      bash -c "python manage.py runserver 0.0.0.0:8000"
